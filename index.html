@@ -305,7 +305,77 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 
 /* ==========================================================================
-   9. ЯК МИ ПРАЦЮЄМО
+   9. КАЛЬКУЛЯТОР І ФОРМА ЗАЯВКИ
+   ========================================================================== */
+.calculator-grid { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+.calculator-card,
+.calculator-summary {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+.calculator-card { padding: 28px 22px; }
+.calculator-summary { padding: 26px 22px; }
+.form-step + .form-step { margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--line); }
+.form-step-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 650; margin-bottom: 16px; }
+.form-step-title span {
+  width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--primary-light); color: var(--primary);
+  font-family: var(--font-mono); font-size: 12px;
+}
+.service-options { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.service-option { position: relative; }
+.service-option input { position: absolute; opacity: 0; pointer-events: none; }
+.service-option label {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px; border: 1.5px solid var(--line); border-radius: 12px; cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.service-option label:hover { border-color: #BDAEFF; transform: translateY(-1px); }
+.service-option input:checked + label { border-color: var(--primary); background: var(--primary-light); }
+.service-option input:focus-visible + label { outline: 2px solid var(--primary); outline-offset: 3px; }
+.service-option-name { font-weight: 600; font-size: 14.5px; }
+.service-option-price { color: var(--primary); font-family: var(--font-mono); font-size: 12.5px; white-space: nowrap; }
+.area-control { display: grid; grid-template-columns: 1fr 112px; gap: 14px; align-items: center; }
+.area-range { width: 100%; accent-color: var(--primary); }
+.field,
+.area-number {
+  width: 100%; border: 1.5px solid var(--line); background: var(--white); color: var(--ink);
+  border-radius: 10px; padding: 13px 14px; font: inherit; font-size: 15px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.field:focus,
+.area-number:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(109,74,255,.12); }
+.field-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 7px; }
+.field-label .optional { color: var(--ink-soft); font-weight: 400; }
+.form-fields { display: grid; grid-template-columns: 1fr; gap: 15px; }
+textarea.field { min-height: 94px; resize: vertical; }
+.calculator-submit { width: 100%; margin-top: 18px; }
+.form-note { font-size: 12px; color: var(--ink-soft); margin-top: 12px; text-align: center; }
+.summary-kicker { font-family: var(--font-mono); color: var(--primary); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.summary-price { font-family: var(--font-display); font-size: clamp(38px, 8vw, 54px); line-height: 1; margin: 12px 0 8px; color: var(--primary-dark); }
+.summary-price small { font-family: var(--font-body); font-size: 15px; color: var(--ink-soft); }
+.summary-note { color: var(--ink-soft); font-size: 13px; margin-bottom: 22px; }
+.summary-list { border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 13px; }
+.summary-row { display: flex; justify-content: space-between; gap: 16px; font-size: 13.5px; }
+.summary-row span { color: var(--ink-soft); }
+.summary-row strong { text-align: right; font-weight: 600; }
+.summary-disclaimer { margin-top: 20px; padding: 14px; border-radius: 10px; background: var(--primary-light); color: var(--ink-soft); font-size: 12.5px; }
+.form-success { display: none; margin-bottom: 20px; padding: 14px 16px; border-radius: 10px; background: #EAF8EF; color: #22613A; font-size: 14px; }
+.form-success.is-visible { display: block; }
+
+@media (min-width: 720px) {
+  .service-options { grid-template-columns: repeat(3, 1fr); }
+  .form-fields { grid-template-columns: repeat(2, 1fr); }
+  .form-field-wide { grid-column: 1 / -1; }
+}
+@media (min-width: 980px) {
+  .calculator-grid { grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); gap: 28px; }
+  .calculator-card { padding: 34px; }
+  .calculator-summary { position: sticky; top: 92px; padding: 30px; }
+}
+
+/* ==========================================================================
+   10. ЯК МИ ПРАЦЮЄМО
    ========================================================================== */
 .steps-grid { display: grid; grid-template-columns: 1fr; gap: 26px; }
 .step-item { display: flex; gap: 16px; }
@@ -372,6 +442,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <nav class="nav-desktop">
       <ul>
         <li><a href="#services">Послуги</a></li>
+        <li><a href="#calculator">Розрахувати ціну</a></li>
         <li><a href="#extra">Додаткові</a></li>
         <li><a href="#windows">Вікна</a></li>
         <li><a href="#how">Як працюємо</a></li>
@@ -379,7 +450,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       </ul>
     </nav>
 
-    <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary btn-small header-cta">Замовити прибирання</a>
+    <a href="#calculator" class="btn btn-primary btn-small header-cta">Розрахувати вартість</a>
 
     <button class="burger" id="burgerBtn" aria-label="Відкрити меню" aria-expanded="false">
       <span></span>
@@ -389,11 +460,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <nav class="nav-mobile" id="navMobile">
     <ul>
       <li><a href="#services">Послуги</a></li>
+      <li><a href="#calculator">Розрахувати ціну</a></li>
       <li><a href="#extra">Додаткові послуги</a></li>
       <li><a href="#windows">Миття вікон</a></li>
       <li><a href="#how">Як ми працюємо</a></li>
       <li><a href="#contact">Контакти</a></li>
-      <li class="header-cta"><a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Замовити прибирання</a></li>
+      <li class="header-cta"><a href="#calculator" class="btn btn-primary">Розрахувати вартість</a></li>
     </ul>
   </nav>
 </header>
@@ -410,7 +482,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <h1>Чистота, після якої <em>легко дихається</em></h1>
     <p>Професійне прибирання квартир і будинків у Києві, Київській області та Борисполі. Домовляємось про деталі — і берем рутину на себе.</p>
     <div class="hero-actions">
-      <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Замовити прибирання</a>
+      <a href="#calculator" class="btn btn-primary">Розрахувати вартість</a>
       <a href="#extra" class="btn btn-ghost">Переглянути ціни</a>
     </div>
     <div class="hero-meta">
@@ -483,6 +555,103 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         </ul>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     КАЛЬКУЛЯТОР ВАРТОСТІ ТА ЗАЯВКА
+     ========================================================================== -->
+<section class="section" id="calculator" style="background:var(--bg-alt)">
+  <div class="container">
+    <p class="eyebrow reveal">Онлайн-розрахунок</p>
+    <h2 class="section-title reveal">Дізнайтесь орієнтовну вартість</h2>
+    <p class="section-sub reveal">Оберіть тип прибирання та вкажіть площу. Розрахунок з’явиться одразу, а для точного підтвердження залиште свій контакт.</p>
+
+    <div class="calculator-grid">
+      <form class="calculator-card reveal" id="quoteForm" action="https://formsubmit.co/butterfly.cleaning8@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Нова заявка із сайту Метелик">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://kocuk473-droid.github.io/metelyk-cleaning/?success=1#calculator">
+        <input type="hidden" name="Орієнтовна вартість" id="hiddenPrice" value="5000 грн">
+
+        <div class="form-success" id="formSuccess" role="status">Дякуємо! Заявку надіслано. Ми зв’яжемося з вами найближчим часом.</div>
+
+        <div class="form-step">
+          <h3 class="form-step-title"><span>01</span> Оберіть послугу</h3>
+          <div class="service-options">
+            <div class="service-option">
+              <input type="radio" name="Послуга" id="serviceRegular" value="Підтримуюче прибирання" data-name="Підтримуюче прибирання" data-rate="40">
+              <label for="serviceRegular"><span class="service-option-name">Підтримуюче</span><span class="service-option-price">40 грн/м²</span></label>
+            </div>
+            <div class="service-option">
+              <input type="radio" name="Послуга" id="serviceGeneral" value="Генеральне прибирання" data-name="Генеральне прибирання" data-rate="100" checked>
+              <label for="serviceGeneral"><span class="service-option-name">Генеральне</span><span class="service-option-price">100 грн/м²</span></label>
+            </div>
+            <div class="service-option">
+              <input type="radio" name="Послуга" id="serviceRepair" value="Прибирання після ремонту" data-name="Прибирання після ремонту" data-rate="120">
+              <label for="serviceRepair"><span class="service-option-name">Після ремонту</span><span class="service-option-price">120 грн/м²</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h3 class="form-step-title"><span>02</span> Вкажіть площу</h3>
+          <div class="area-control">
+            <input class="area-range" type="range" id="areaRange" min="20" max="300" step="5" value="50" aria-label="Площа приміщення">
+            <input class="area-number" type="number" id="areaNumber" name="Площа" min="20" max="1000" step="1" value="50" required aria-label="Площа у квадратних метрах">
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h3 class="form-step-title"><span>03</span> Залиште контакт</h3>
+          <div class="form-fields">
+            <div>
+              <label class="field-label" for="clientName">Ваше ім’я</label>
+              <input class="field" type="text" id="clientName" name="Ім’я" autocomplete="name" placeholder="Наприклад, Олена" required>
+            </div>
+            <div>
+              <label class="field-label" for="clientPhone">Номер телефону</label>
+              <input class="field" type="tel" id="clientPhone" name="Телефон" autocomplete="tel" placeholder="+380 00 000 00 00" minlength="10" required>
+            </div>
+            <div>
+              <label class="field-label" for="clientLocation">Місто</label>
+              <select class="field" id="clientLocation" name="Місто" required>
+                <option value="Київ">Київ</option>
+                <option value="Бориспіль">Бориспіль</option>
+                <option value="Київська область">Київська область</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="contactMethod">Як зв’язатися</label>
+              <select class="field" id="contactMethod" name="Зручний спосіб зв’язку">
+                <option value="Телефон">Телефон</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Viber">Viber</option>
+              </select>
+            </div>
+            <div class="form-field-wide">
+              <label class="field-label" for="clientComment">Коментар <span class="optional">— необов’язково</span></label>
+              <textarea class="field" id="clientComment" name="Коментар" placeholder="Адреса, бажана дата або важливі деталі"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary calculator-submit" type="submit">Надіслати заявку</button>
+          <p class="form-note">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку щодо заявки.</p>
+        </div>
+      </form>
+
+      <aside class="calculator-summary reveal" aria-live="polite">
+        <p class="summary-kicker">Орієнтовна вартість</p>
+        <p class="summary-price"><span id="summaryPrice">5 000</span> <small>грн</small></p>
+        <p class="summary-note">Фінальну суму підтвердимо після уточнення деталей.</p>
+        <div class="summary-list">
+          <div class="summary-row"><span>Послуга</span><strong id="summaryService">Генеральне прибирання</strong></div>
+          <div class="summary-row"><span>Площа</span><strong><span id="summaryArea">50</span> м²</strong></div>
+          <div class="summary-row"><span>Тариф</span><strong><span id="summaryRate">100</span> грн/м²</strong></div>
+        </div>
+        <p class="summary-disclaimer">Розрахунок не враховує миття вікон і додаткові послуги. Їх можна зазначити в коментарі.</p>
+      </aside>
     </div>
   </div>
 </section>
@@ -665,7 +834,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     </div>
 
     <div class="footer-bottom">
-      © 2026 Метелик. Навчальний проєкт (демо-сайт).
+      © 2026 Метелик. Клінінгові послуги у Києві та Київській області.
     </div>
   </div>
 </footer>
@@ -702,6 +871,62 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// --- Онлайн-розрахунок вартості ---
+const serviceInputs = document.querySelectorAll('input[name="Послуга"]');
+const areaRange = document.getElementById('areaRange');
+const areaNumber = document.getElementById('areaNumber');
+const summaryPrice = document.getElementById('summaryPrice');
+const summaryService = document.getElementById('summaryService');
+const summaryArea = document.getElementById('summaryArea');
+const summaryRate = document.getElementById('summaryRate');
+const hiddenPrice = document.getElementById('hiddenPrice');
+
+function getSelectedService() {
+  return document.querySelector('input[name="Послуга"]:checked');
+}
+
+function updateEstimate() {
+  const selected = getSelectedService();
+  const area = Math.max(1, Number(areaNumber.value) || 1);
+  const rate = Number(selected.dataset.rate);
+  const total = area * rate;
+
+  summaryPrice.textContent = new Intl.NumberFormat('uk-UA').format(total);
+  summaryService.textContent = selected.dataset.name;
+  summaryArea.textContent = area;
+  summaryRate.textContent = rate;
+  hiddenPrice.value = `${new Intl.NumberFormat('uk-UA').format(total)} грн`;
+}
+
+areaRange.addEventListener('input', () => {
+  areaNumber.value = areaRange.value;
+  updateEstimate();
+});
+
+areaNumber.addEventListener('input', () => {
+  const value = Number(areaNumber.value);
+  if (value >= Number(areaRange.min) && value <= Number(areaRange.max)) areaRange.value = value;
+  updateEstimate();
+});
+
+areaNumber.addEventListener('blur', () => {
+  const min = Number(areaNumber.min);
+  const max = Number(areaNumber.max);
+  const value = Math.min(max, Math.max(min, Number(areaNumber.value) || min));
+  areaNumber.value = value;
+  if (value <= Number(areaRange.max)) areaRange.value = value;
+  updateEstimate();
+});
+
+serviceInputs.forEach(input => input.addEventListener('change', updateEstimate));
+updateEstimate();
+
+// Показуємо підтвердження після повернення з сервісу відправлення форми.
+const query = new URLSearchParams(window.location.search);
+if (query.get('success') === '1') {
+  document.getElementById('formSuccess').classList.add('is-visible');
+}
 </script>
 
 </body>
