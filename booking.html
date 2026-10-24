@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Замовити прибирання — Метелик</title>
+  <meta name="description" content="Залиште заявку на прибирання у Києві, Київській області або Борисполі. Оберіть послугу, дату та додайте фото чи відео приміщення.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#6D4AFF">
+  <link rel="canonical" href="https://webby-kot.github.io/metelyk-cleaning/booking.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Замовити прибирання — Метелик">
+  <meta property="og:description" content="Заявка на прибирання з розрахунком вартості, вибором дати та можливістю додати фото або відео.">
+  <meta property="og:url" content="https://webby-kot.github.io/metelyk-cleaning/booking.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6D4AFF;
+      --primary-dark: #241B3A;
+      --primary-light: #F1EEFF;
+      --bg: #FAF9FC;
+      --card: #FFFFFF;
+      --ink: #24222A;
+      --soft: #6E6A7C;
+      --line: #E6E1F5;
+      --green: #287A45;
+      --red: #B42318;
+      --display: 'Instrument Serif', serif;
+      --body: 'Inter', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: var(--body);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, rgba(109,74,255,.12), transparent 28rem),
+        radial-gradient(circle at 90% 80%, rgba(109,74,255,.08), transparent 30rem),
+        var(--bg);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250,249,252,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(230,225,245,.8);
+    }
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--display);
+      font-size: 25px;
+      font-style: italic;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 1px solid var(--line);
+      font-size: 20px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--soft);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .back-link:hover { color: var(--primary); }
+    main { padding: 52px 0 76px; }
+    .intro { max-width: 720px; margin-bottom: 34px; }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(40px, 7vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .intro p { color: var(--soft); max-width: 62ch; }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 28px;
+      align-items: start;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 16px 50px -30px rgba(36,27,58,.35);
+    }
+    .form-card { padding: 32px; }
+    .step + .step {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    .step-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+    .step-title span {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      font: 12px var(--mono);
+    }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .service { position: relative; }
+    .service input { position: absolute; opacity: 0; }
+    .service label {
+      min-height: 86px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 9px;
+      padding: 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .service label:hover { border-color: #B6A7FF; transform: translateY(-1px); }
+    .service input:checked + label { border-color: var(--primary); background: var(--primary-light); }
+    .service input:focus-visible + label { outline: 2px solid var(--primary); outline-offset: 3px; }
+    .service-name { font-size: 14px; font-weight: 650; }
+    .service-price { color: var(--primary); font: 12px var(--mono); }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .wide { grid-column: 1 / -1; }
+    .field-label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 650; }
+    .optional { color: var(--soft); font-weight: 400; }
+    .field {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      color: var(--ink);
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+    textarea.field { min-height: 100px; resize: vertical; }
+    .field:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(109,74,255,.12);
+    }
+    .area-wrap { display: grid; grid-template-columns: 1fr 120px; gap: 14px; align-items: center; }
+    input[type="range"] { width: 100%; accent-color: var(--primary); }
+    .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .upload-box {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+      padding: 18px;
+      border: 1.5px dashed #B9ACEB;
+      border-radius: 12px;
+      background: #FBFAFF;
+    }
+    .upload-box strong { font-size: 14px; }
+    .upload-box p, .file-status { color: var(--soft); font-size: 12px; }
+    .upload-box input { width: 100%; color: var(--soft); font-size: 12px; }
+    .upload-note {
+      margin-top: 12px;
+      padding: 13px 15px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      color: var(--soft);
+      font-size: 12.5px;
+    }
+    .upload-note a { color: var(--primary); font-weight: 650; }
+    .file-error { display: none; color: var(--red); font-size: 13px; margin-top: 10px; }
+    .file-error.show { display: block; }
+    .honeypot { display: none !important; }
+    .submit {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      background: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 28px -16px rgba(109,74,255,.7);
+      transition: .2s ease;
+    }
+    .submit:hover { background: #5838EB; transform: translateY(-1px); }
+    .submit:focus-visible { outline: 2px solid var(--primary-dark); outline-offset: 3px; }
+    .legal { margin-top: 11px; color: var(--soft); font-size: 11.5px; text-align: center; }
+    .summary { position: sticky; top: 98px; padding: 27px; }
+    .summary-kicker { color: var(--primary); font: 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .price { margin: 10px 0 6px; color: var(--primary-dark); font: 52px/1 var(--display); }
+    .price small { color: var(--soft); font: 14px var(--body); }
+    .summary-copy { color: var(--soft); font-size: 13px; margin-bottom: 20px; }
+    .summary-list { display: grid; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .summary-row { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; }
+    .summary-row span { color: var(--soft); }
+    .summary-row strong { text-align: right; }
+    .how {
+      margin-top: 22px;
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--primary-light);
+    }
+    .how strong { display: block; font-size: 13px; margin-bottom: 7px; }
+    .how ol { margin-left: 18px; color: var(--soft); font-size: 12px; }
+    .success {
+      display: none;
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      border: 1px solid #BCE1C8;
+      border-radius: 12px;
+      background: #EFFAF3;
+      color: var(--green);
+    }
+    .success.show { display: block; }
+    footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--soft); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .summary { position: static; order: -1; }
+    }
+    @media (max-width: 680px) {
+      main { padding-top: 36px; }
+      .form-card { padding: 22px 18px; }
+      .service-grid, .fields, .upload-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+      .service label { min-height: auto; flex-direction: row; align-items: center; }
+      .back-link span { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">🦋</span> Метелик</a>
+      <a class="back-link" href="index.html">← <span>Повернутися на головну</span></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="intro">
+        <p class="eyebrow">Заявка на бронювання</p>
+        <h1>Заплануйте прибирання</h1>
+        <p>Оберіть послугу, площу та бажану дату. Фото або коротке відео допоможуть точніше оцінити обсяг робіт до дзвінка.</p>
+      </div>
+
+      <div class="success" id="successMessage" role="status">
+        <strong>Дякуємо, заявку надіслано.</strong><br>
+        Ми перевіримо деталі та зв’яжемося з вами, щоб підтвердити дату й остаточну вартість.
+      </div>
+
+      <div class="layout">
+        <form class="card form-card" id="bookingForm" action="https://formsubmit.co/butterfly.cleaning8@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Нове бронювання — сайт Метелик">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://webby-kot.github.io/metelyk-cleaning/booking.html?success=1">
+          <input type="hidden" name="Орієнтовна вартість" id="hiddenPrice" value="5000 грн">
+          <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+          <section class="step">
+            <h2 class="step-title"><span>01</span> Оберіть прибирання</h2>
+            <div class="service-grid">
+              <div class="service">
+                <input type="radio" name="Послуга" id="regular" value="Підтримуюче прибирання" data-name="Підтримуюче" data-rate="40">
+                <label for="regular"><b class="service-name">Підтримуюче</b><span class="service-price">40 грн/м²</span></label>
+              </div>
+              <div class="service">
+                <input type="radio" name="Послуга" id="general" value="Генеральне прибирання" data-name="Генеральне" data-rate="100" checked>
+                <label for="general"><b class="service-name">Генеральне</b><span class="service-price">100 грн/м²</span></label>
+              </div>
+              <div class="service">
+                <input type="radio" name="Послуга" id="renovation" value="Прибирання після ремонту" data-name="Після ремонту" data-rate="120">
+                <label for="renovation"><b class="service-name">Після ремонту</b><span class="service-price">120 грн/м²</span></label>
+              </div>
+            </div>
+          </section>
+
+          <section class="step">
+            <h2 class="step-title"><span>02</span> Об’єкт і бажаний час</h2>
+            <div class="fields">
+              <div class="wide">
+                <label class="field-label" for="area">Площа приміщення</label>
+                <div class="area-wrap">
+                  <input type="range" id="areaRange" min="20" max="300" step="5" value="50" aria-label="Площа приміщення">
+                  <input class="field" type="number" id="area" name="Площа" min="20" max="1000" value="50" required aria-label="Площа у квадратних метрах">
+                </div>
+              </div>
+              <div>
+                <label class="field-label" for="city">Місто</label>
+                <select class="field" id="city" name="Місто" required>
+                  <option value="Київ">Київ</option>
+                  <option value="Бориспіль">Бориспіль</option>
+                  <option value="Київська область">Київська область</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="address">Адреса</label>
+                <input class="field" id="address" name="Адреса" placeholder="Район, вулиця, будинок" required>
+              </div>
+              <div>
+                <label class="field-label" for="date">Бажана дата</label>
+                <input class="field" type="date" id="date" name="Бажана дата" required>
+              </div>
+              <div>
+                <label class="field-label" for="time">Зручний час</label>
+                <select class="field" id="time" name="Зручний час" required>
+                  <option value="">Оберіть час</option>
+                  <option>08:00–10:00</option>
+                  <option>10:00–12:00</option>
+                  <option>12:00–14:00</option>
+                  <option>14:00–16:00</option>
+                  <option>16:00–18:00</option>
+                  <option value="Інший час">Інший час</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="step">
+            <h2 class="step-title"><span>03</span> Контактні дані</h2>
+            <div class="fields">
+              <div>
+                <label class="field-label" for="name">Ваше ім’я</label>
+                <input class="field" id="name" name="Ім’я" autocomplete="name" placeholder="Наприклад, Олена" required>
+              </div>
+              <div>
+                <label class="field-label" for="phone">Номер телефону</label>
+                <input class="field" type="tel" id="phone" name="Телефон" autocomplete="tel" placeholder="+380 00 000 00 00" minlength="10" required>
+              </div>
+              <div>
+                <label class="field-label" for="contact">Як зв’язатися</label>
+                <select class="field" id="contact" name="Зручний спосіб зв’язку">
+                  <option>Телефон</option>
+                  <option>Telegram</option>
+                  <option>Viber</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="rooms">Кількість кімнат <span class="optional">— необов’язково</span></label>
+                <input class="field" type="number" id="rooms" name="Кількість кімнат" min="1" max="30" placeholder="Наприклад, 2">
+              </div>
+              <div class="wide">
+                <label class="field-label" for="comment">Коментар <span class="optional">— необов’язково</span></label>
+                <textarea class="field" id="comment" name="Коментар" placeholder="Стан приміщення, додаткові послуги або інший зручний час"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="step">
+            <h2 class="step-title"><span>04</span> Додайте фото або відео</h2>
+            <div class="upload-grid">
+              <label class="upload-box" for="photos">
+                <strong>Фото приміщення</strong>
+                <p>JPG, PNG або HEIC</p>
+                <input type="file" id="photos" name="Фото приміщення" accept="image/jpeg,image/png,image/heic,image/heif" multiple>
+              </label>
+              <label class="upload-box" for="video">
+                <strong>Коротке відео</strong>
+                <p>MP4, MOV або WebM</p>
+                <input type="file" id="video" name="Відео приміщення" accept="video/mp4,video/quicktime,video/webm">
+              </label>
+            </div>
+            <p class="file-status" id="fileStatus">Загальний розмір вкладень — до 10 МБ.</p>
+            <p class="file-error" id="fileError" role="alert">Файли завеликі. Зменште їх до 10 МБ загалом або надішліть відео через Telegram.</p>
+            <p class="upload-note">Відео більше 10 МБ можна надіслати окремо у <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener">Telegram @cleaning_butterfly</a>, вказавши ім’я та номер телефону із заявки.</p>
+
+            <button class="submit" type="submit">Надіслати заявку на бронювання</button>
+            <p class="legal">Надсилаючи заявку, ви погоджуєтесь на використання контактних даних і вкладень виключно для оцінки та організації прибирання.</p>
+          </section>
+        </form>
+
+        <aside class="card summary" aria-live="polite">
+          <p class="summary-kicker">Орієнтовна вартість</p>
+          <p class="price"><span id="price">5 000</span> <small>грн</small></p>
+          <p class="summary-copy">Фінальна сума й час підтверджуються після перегляду заявки.</p>
+          <div class="summary-list">
+            <div class="summary-row"><span>Послуга</span><strong id="summaryService">Генеральне</strong></div>
+            <div class="summary-row"><span>Площа</span><strong><span id="summaryArea">50</span> м²</strong></div>
+            <div class="summary-row"><span>Тариф</span><strong><span id="summaryRate">100</span> грн/м²</strong></div>
+          </div>
+          <div class="how">
+            <strong>Що буде далі</strong>
+            <ol>
+              <li>Отримаємо заявку та файли.</li>
+              <li>Уточнимо деталі телефоном.</li>
+              <li>Підтвердимо дату й вартість.</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Метелик</span>
+      <span>Київ · Київська область · Бориспіль</span>
+    </div>
+  </footer>
+
+  <script>
+    const serviceInputs = document.querySelectorAll('input[name="Послуга"]');
+    const areaRange = document.getElementById('areaRange');
+    const areaInput = document.getElementById('area');
+    const price = document.getElementById('price');
+    const summaryService = document.getElementById('summaryService');
+    const summaryArea = document.getElementById('summaryArea');
+    const summaryRate = document.getElementById('summaryRate');
+    const hiddenPrice = document.getElementById('hiddenPrice');
+    const photoInput = document.getElementById('photos');
+    const videoInput = document.getElementById('video');
+    const fileStatus = document.getElementById('fileStatus');
+    const fileError = document.getElementById('fileError');
+    const form = document.getElementById('bookingForm');
+    const formatter = new Intl.NumberFormat('uk-UA');
+    const maxUploadBytes = 10 * 1024 * 1024;
+
+    function selectedService() {
+      return document.querySelector('input[name="Послуга"]:checked');
+    }
+
+    function updateEstimate() {
+      const service = selectedService();
+      const area = Math.max(1, Number(areaInput.value) || 1);
+      const rate = Number(service.dataset.rate);
+      const total = area * rate;
+      price.textContent = formatter.format(total);
+      summaryService.textContent = service.dataset.name;
+      summaryArea.textContent = area;
+      summaryRate.textContent = rate;
+      hiddenPrice.value = formatter.format(total) + ' грн';
+    }
+
+    function totalFileSize() {
+      return [...photoInput.files, ...videoInput.files].reduce((sum, file) => sum + file.size, 0);
+    }
+
+    function validateFiles() {
+      const total = totalFileSize();
+      const valid = total <= maxUploadBytes;
+      fileError.classList.toggle('show', !valid);
+      fileStatus.textContent = total
+        ? 'Обрано файлів: ' + (photoInput.files.length + videoInput.files.length) + ' · ' + (total / 1024 / 1024).toFixed(1) + ' МБ із 10 МБ'
+        : 'Загальний розмір вкладень — до 10 МБ.';
+      return valid;
+    }
+
+    areaRange.addEventListener('input', () => {
+      areaInput.value = areaRange.value;
+      updateEstimate();
+    });
+
+    areaInput.addEventListener('input', () => {
+      const value = Number(areaInput.value);
+      if (value >= 20 && value <= 300) areaRange.value = value;
+      updateEstimate();
+    });
+
+    areaInput.addEventListener('blur', () => {
+      const value = Math.min(1000, Math.max(20, Number(areaInput.value) || 20));
+      areaInput.value = value;
+      if (value <= 300) areaRange.value = value;
+      updateEstimate();
+    });
+
+    serviceInputs.forEach(input => input.addEventListener('change', updateEstimate));
+    photoInput.addEventListener('change', validateFiles);
+    videoInput.addEventListener('change', validateFiles);
+
+    form.addEventListener('submit', event => {
+      if (!validateFiles()) {
+        event.preventDefault();
+        fileError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+    dateInput.min = localDate;
+
+    if (new URLSearchParams(window.location.search).get('success') === '1') {
+      document.getElementById('successMessage').classList.add('show');
+      document.getElementById('successMessage').scrollIntoView({ block: 'center' });
+    }
+
+    updateEstimate();
+  </script>
+</body>
+</html>
