@@ -385,6 +385,7 @@ textarea.field { min-height: 94px; resize: vertical; }
 .summary-disclaimer { margin-top: 20px; padding: 14px; border-radius: 10px; background: var(--primary-light); color: var(--ink-soft); font-size: 12.5px; }
 .form-success { display: none; margin-bottom: 20px; padding: 14px 16px; border-radius: 10px; background: #EAF8EF; color: #22613A; font-size: 14px; }
 .form-success.is-visible { display: block; }
+.floating-booking { display: none; }
 
 @media (min-width: 720px) {
   .service-options { grid-template-columns: repeat(3, 1fr); }
@@ -395,6 +396,15 @@ textarea.field { min-height: 94px; resize: vertical; }
   .calculator-grid { grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); gap: 28px; }
   .calculator-card { padding: 34px; }
   .calculator-summary { position: sticky; top: 92px; padding: 30px; }
+}
+@media (max-width: 719px) {
+  body { padding-bottom: 78px; }
+  .floating-booking {
+    position: fixed; left: 18px; right: 18px; bottom: 14px; z-index: 80;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 52px; border-radius: 999px; color: var(--white); background: var(--primary);
+    font-size: 15px; font-weight: 700; box-shadow: 0 14px 32px rgba(36,27,58,.3);
+  }
 }
 
 /* ==========================================================================
@@ -474,7 +484,7 @@ textarea.field { min-height: 94px; resize: vertical; }
       </ul>
     </nav>
 
-    <a href="booking.html" class="btn btn-primary btn-small header-cta">Замовити прибирання</a>
+    <a href="booking.html" class="btn btn-primary btn-small header-cta">Забронювати</a>
 
     <button class="burger" id="burgerBtn" aria-label="Відкрити меню" aria-expanded="false">
       <span></span>
@@ -490,7 +500,7 @@ textarea.field { min-height: 94px; resize: vertical; }
       <li><a href="#windows">Миття вікон</a></li>
       <li><a href="#how">Як ми працюємо</a></li>
       <li><a href="#contact">Контакти</a></li>
-      <li class="header-cta"><a href="booking.html" class="btn btn-primary">Замовити прибирання</a></li>
+      <li class="header-cta"><a href="booking.html" class="btn btn-primary">Забронювати</a></li>
     </ul>
   </nav>
 </header>
@@ -507,7 +517,7 @@ textarea.field { min-height: 94px; resize: vertical; }
     <h1>Чистота, після якої <em>легко дихається</em></h1>
     <p>Професійне прибирання квартир і будинків у Києві, Київській області та Борисполі. Домовляємось про деталі — і берем рутину на себе.</p>
     <div class="hero-actions">
-      <a href="booking.html" class="btn btn-primary">Замовити прибирання</a>
+      <a href="booking.html" class="btn btn-primary">Забронювати прибирання</a>
       <a href="#calculator" class="btn btn-ghost">Розрахувати вартість</a>
     </div>
     <div class="hero-meta">
@@ -676,7 +686,7 @@ textarea.field { min-height: 94px; resize: vertical; }
           <div class="summary-row"><span>Тариф</span><strong><span id="summaryRate">100</span> грн/м²</strong></div>
         </div>
         <p class="summary-disclaimer">Розрахунок не враховує миття вікон і додаткові послуги. Їх можна зазначити в коментарі.</p>
-        <a href="booking.html" class="btn btn-primary calculator-submit">Перейти до бронювання</a>
+        <a href="booking.html" class="btn btn-primary calculator-submit">Забронювати</a>
       </aside>
     </div>
   </div>
@@ -815,6 +825,7 @@ textarea.field { min-height: 94px; resize: vertical; }
       <h2>Потрібне прибирання?</h2>
       <p>Напишіть нам у Telegram або зателефонуйте — уточнимо деталі та підберемо зручний час.</p>
       <div class="cta-actions">
+        <a href="booking.html" class="btn btn-primary">Забронювати онлайн</a>
         <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           Написати в Telegram
@@ -864,6 +875,8 @@ textarea.field { min-height: 94px; resize: vertical; }
     </div>
   </div>
 </footer>
+
+<a class="floating-booking" href="booking.html">Забронювати прибирання</a>
 
 <script>
 // --- Мобільне меню: показуємо/ховаємо список посилань ---
