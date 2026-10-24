@@ -28,6 +28,29 @@
   "sameAs": ["https://www.instagram.com/cleaning_service_butterfly/"]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Як формується остаточна вартість прибирання?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Сайт показує орієнтовну вартість за площею. Остаточна сума залежить від стану приміщення, обсягу робіт і додаткових послуг та підтверджується після уточнення деталей."}
+    },
+    {
+      "@type": "Question",
+      "name": "Чи входить миття вікон у вартість прибирання?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Миття вікон розраховується окремо — орієнтовно від 250 до 350 гривень за одну стулку."}
+    },
+    {
+      "@type": "Question",
+      "name": "Де працює клінінгова компанія Метелик?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Компанія працює у Києві, Борисполі та Київській області."}
+    }
+  ]
+}
+</script>
 
 <!-- Шрифти: Instrument Serif для великих заголовків (легкий, витончений),
      Inter для основного тексту, IBM Plex Mono для цін (ефект «чіткого чеку») -->
@@ -419,6 +442,17 @@ textarea.field { min-height: 94px; resize: vertical; }
 .step-item h3 { font-size: 16.5px; font-weight: 600; margin-bottom: 5px; }
 .step-item p { color: var(--ink-soft); font-size: 14px; }
 
+/* ==========================================================================
+   11. ЧАСТІ ЗАПИТАННЯ
+   ========================================================================== */
+.faq-list { max-width: 820px; display: grid; gap: 12px; }
+.faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-soft); }
+.faq-item summary { padding: 19px 22px; cursor: pointer; font-weight: 600; list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; float: right; color: var(--primary); font-size: 21px; line-height: 1; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { padding: 0 22px 20px; color: var(--ink-soft); font-size: 14px; }
+
 @media (min-width: 700px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1100px) { .steps-grid { grid-template-columns: repeat(5, 1fr); gap: 18px; } }
 
@@ -476,15 +510,15 @@ textarea.field { min-height: 94px; resize: vertical; }
       <ul>
         <li><a href="#services">Послуги</a></li>
         <li><a href="#calculator">Розрахувати ціну</a></li>
-        <li><a href="booking.html">Бронювання</a></li>
         <li><a href="#extra">Додаткові</a></li>
         <li><a href="#windows">Вікна</a></li>
         <li><a href="#how">Як працюємо</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Контакти</a></li>
       </ul>
     </nav>
 
-    <a href="booking.html" class="btn btn-primary btn-small header-cta">Забронювати</a>
+    <a href="#calculator" class="btn btn-primary btn-small header-cta">Розрахувати вартість</a>
 
     <button class="burger" id="burgerBtn" aria-label="Відкрити меню" aria-expanded="false">
       <span></span>
@@ -495,12 +529,12 @@ textarea.field { min-height: 94px; resize: vertical; }
     <ul>
       <li><a href="#services">Послуги</a></li>
       <li><a href="#calculator">Розрахувати ціну</a></li>
-      <li><a href="booking.html">Бронювання</a></li>
       <li><a href="#extra">Додаткові послуги</a></li>
       <li><a href="#windows">Миття вікон</a></li>
       <li><a href="#how">Як ми працюємо</a></li>
+      <li><a href="#faq">Часті запитання</a></li>
       <li><a href="#contact">Контакти</a></li>
-      <li class="header-cta"><a href="booking.html" class="btn btn-primary">Забронювати</a></li>
+      <li class="header-cta"><a href="#calculator" class="btn btn-primary">Розрахувати вартість</a></li>
     </ul>
   </nav>
 </header>
@@ -517,7 +551,7 @@ textarea.field { min-height: 94px; resize: vertical; }
     <h1>Чистота, після якої <em>легко дихається</em></h1>
     <p>Професійне прибирання квартир і будинків у Києві, Київській області та Борисполі. Домовляємось про деталі — і берем рутину на себе.</p>
     <div class="hero-actions">
-      <a href="booking.html" class="btn btn-primary">Забронювати прибирання</a>
+      <a href="#calculator" class="btn btn-primary">Розрахувати вартість</a>
       <a href="#calculator" class="btn btn-ghost">Розрахувати вартість</a>
     </div>
     <div class="hero-meta">
@@ -686,7 +720,6 @@ textarea.field { min-height: 94px; resize: vertical; }
           <div class="summary-row"><span>Тариф</span><strong><span id="summaryRate">100</span> грн/м²</strong></div>
         </div>
         <p class="summary-disclaimer">Розрахунок не враховує миття вікон і додаткові послуги. Їх можна зазначити в коментарі.</p>
-        <a href="booking.html" class="btn btn-primary calculator-submit">Забронювати</a>
       </aside>
     </div>
   </div>
@@ -817,6 +850,34 @@ textarea.field { min-height: 94px; resize: vertical; }
 </section>
 
 <!-- ==========================================================================
+     ЧАСТІ ЗАПИТАННЯ
+     ========================================================================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="eyebrow reveal">Корисно знати</p>
+    <h2 class="section-title reveal">Часті запитання</h2>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Як формується остаточна вартість?</summary>
+        <p>Калькулятор показує орієнтовну суму за площею. Остаточна ціна залежить від стану приміщення, обсягу робіт і додаткових послуг та підтверджується після уточнення деталей.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Чи входить миття вікон у вартість?</summary>
+        <p>Ні, миття вікон розраховується окремо — орієнтовно від 250 до 350 грн за одну стулку.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>У яких містах ви працюєте?</summary>
+        <p>Ми приймаємо заявки у Києві, Борисполі та Київській області.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Як залишити заявку?</summary>
+        <p>Розрахуйте орієнтовну вартість у формі, залиште номер телефону або напишіть нам у Telegram. Ми зв’яжемося з вами для уточнення деталей.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
      CTA ПЕРЕД FOOTER
      ========================================================================== -->
 <section class="section" id="contact">
@@ -825,7 +886,7 @@ textarea.field { min-height: 94px; resize: vertical; }
       <h2>Потрібне прибирання?</h2>
       <p>Напишіть нам у Telegram або зателефонуйте — уточнимо деталі та підберемо зручний час.</p>
       <div class="cta-actions">
-        <a href="booking.html" class="btn btn-primary">Забронювати онлайн</a>
+        <a href="#calculator" class="btn btn-primary">Розрахувати онлайн</a>
         <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           Написати в Telegram
@@ -876,7 +937,7 @@ textarea.field { min-height: 94px; resize: vertical; }
   </div>
 </footer>
 
-<a class="floating-booking" href="booking.html">Забронювати прибирання</a>
+<a class="floating-booking" href="#calculator">Розрахувати вартість</a>
 
 <script>
 // --- Мобільне меню: показуємо/ховаємо список посилань ---
