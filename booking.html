@@ -255,6 +255,16 @@
       color: var(--green);
     }
     .success.show { display: block; }
+    .contact-strip {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 20px;
+      color: var(--soft);
+      font-size: 13px;
+    }
+    .contact-strip a { color: var(--primary); font-weight: 650; }
     footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--soft); font-size: 12px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
     @media (max-width: 900px) {
@@ -285,6 +295,11 @@
         <p class="eyebrow">Заявка на бронювання</p>
         <h1>Заплануйте прибирання</h1>
         <p>Оберіть послугу, площу та бажану дату. Фото або коротке відео допоможуть точніше оцінити обсяг робіт до дзвінка.</p>
+        <div class="contact-strip" aria-label="Контактні дані">
+          <span>Телефон: <a href="tel:+380963037687">+380 96 303 76 87</a></span>
+          <span>Telegram: <a href="https://t.me/cleaning_butterfly">@cleaning_butterfly</a></span>
+          <span>Email: <a href="mailto:butterfly.cleaning8@gmail.com">butterfly.cleaning8@gmail.com</a></span>
+        </div>
       </div>
 
       <div class="success" id="successMessage" role="status">
@@ -437,8 +452,8 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 Метелик</span>
-      <span>Київ · Київська область · Бориспіль</span>
+      <span>© 2026 Метелик · <a href="tel:+380963037687">+380 96 303 76 87</a></span>
+      <span><a href="mailto:butterfly.cleaning8@gmail.com">butterfly.cleaning8@gmail.com</a> · Київ · Київська область · Бориспіль</span>
     </div>
   </footer>
 
