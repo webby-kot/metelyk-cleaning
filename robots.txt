@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://webby-kot.github.io/metelyk-cleaning/sitemap.xml
+Sitemap: https://metelyk-cleaning.com.ua/sitemap.xml
