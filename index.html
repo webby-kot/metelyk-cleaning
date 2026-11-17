@@ -6,7 +6,7 @@
 <title>Метелик — клінінгова компанія (Київ, Київська область, Бориспіль)</title>
 <meta name="description" content="Клінінгова компанія «Метелик»: генеральне, підтримуюче прибирання та прибирання після ремонту у Києві, Київській області та Борисполі.">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#6D4AFF">
+<meta name="theme-color" content="#7953c7">
 <link rel="canonical" href="https://webby-kot.github.io/metelyk-cleaning/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
@@ -154,7 +154,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .section { padding: 76px 0; }
 
 /* плавна поява елементів при скролі */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal { opacity: 1; transform: none; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* фокус для клавіатурної навігації — доступність */
@@ -230,7 +230,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .nav-mobile .header-cta { display: block; margin-top: 12px; }
 .nav-mobile .btn { width: 100%; }
 
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
   .nav-desktop { display: block; }
   .header-cta { display: block; }
   .burger { display: none; }
@@ -413,6 +413,120 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .footer-top { flex-direction: row; align-items: center; justify-content: space-between; }
   .footer-cols { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* Mobile cards must fit before their contents determine the grid width. */
+html { scroll-padding-top: 84px; }
+.main-services-grid { min-width: 0; }
+.main-service-card { min-width: 0; }
+.main-service-top { flex-wrap: wrap; }
+.nav-mobile:not(.is-open) { visibility: hidden; }
+.nav-mobile.is-open { visibility: visible; max-height: 560px; }
+.service-feature { padding: clamp(24px, 5vw, 48px); border: 1px solid var(--line); border-radius: 24px; background: var(--primary-dark); color: white; }
+.service-feature .eyebrow, .service-feature .section-sub { color: #d9d3ec; }
+.service-feature .section-sub { max-width: 64ch; margin-bottom: 24px; }
+.feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+.feature-item { padding: 22px; border: 1px solid #625672; border-radius: 16px; }
+.feature-item h3 { font-size: 19px; margin-bottom: 8px; }
+.feature-item p, .feature-note { font-size: 15px; color: #d9d3ec; }
+.estimate-prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 24px 0; }
+.estimate-prices div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; padding: 14px 0; border-bottom: 1px solid #625672; }
+.estimate-prices dt { font-size: 15px; }
+.estimate-prices dd { font-weight: 600; color: #e3daff; white-space: nowrap; font-size: 15px; }
+.feature-note { margin: 16px 0 0; max-width: 68ch; }
+.photo-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 28px 0; }
+.photo-guide article { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.photo-guide h3 { font-size: 17px; margin: 8px 0; }
+.photo-guide p, .guide-note { font-size: 15px; color: var(--ink-soft); }
+.guide-note { max-width: 70ch; margin: 18px 0; }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 599px) {
+  .main-service-top { flex-direction: column; }
+  .feature-grid, .photo-guide, .estimate-prices { grid-template-columns: 1fr; }
+  .price-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .price-dots { display: none; }
+  .windows-price { overflow-wrap: anywhere; }
+}
+
+/* A warmer, quieter direction: lavender, linen and sage. */
+:root { --bg: #fbfaf7; --bg-alt: #f1edf8; --primary: #7953c7; --primary-dark: #302443; --primary-light: #eee7f8; --ink: #302c35; --line: #e5dfea; }
+.section { padding: 56px 0; }
+.header { background: rgba(251,250,247,.94); }
+.header-inner { padding: 14px 0; }
+.btn { border-radius: 14px; }
+.btn-primary:hover { background: #6541ad; }
+.hero { padding: 52px 0 44px; }
+.hero-layout { display: grid; grid-template-columns: 1.04fr 1fr; gap: 36px; align-items: center; }
+.hero-inner { max-width: none; margin: 0; }
+.hero h1 { font-size: clamp(40px, 4.8vw, 66px); }
+.hero p { font-size: 17px; }
+.hero .eyebrow { font-size: 11px; }
+.hero-meta span { background: transparent; border: 0; padding: 2px 0; margin-right: 8px; }
+.hero-art { position: relative; min-width: 0; padding: 25px 0; }
+.hero-art svg { display: block; width: 100%; height: auto; }
+.art-caption { position: absolute; top: 20px; left: 15%; font-size: 12px; color: #6f617b; }
+.art-caption span { color: var(--primary); margin-right: 8px; }
+.art-sticker { position: absolute; bottom: 20px; right: 0; padding: 18px 24px; background: #fffdf8; border: 1px solid #e6decf; border-radius: 15px; transform: rotate(5deg); font-size: 14px; line-height: 1.4; box-shadow: 0 8px 24px #4839420a; }
+.art-sticker em { font-family: var(--font-display); font-size: 22px; }
+.art-sticker>span { float: right; margin-left: 18px; color: var(--primary); }
+.hero-blob, .hero-blob-2 { display: none; }
+.main-service-card { border-radius: 22px; padding: 26px; box-shadow: none; }
+.main-service-card.is-accent { background: #ece7f4; border-color: #cdbce4; color: var(--ink); }
+.main-service-card.is-accent .main-service-list li { color: var(--ink-soft); }
+.main-service-card.is-accent .main-service-price { background: #fff; color: var(--primary); }
+.main-service-card.is-accent .main-service-list svg { color: var(--primary); }
+.main-service-top { flex-direction: column; gap: 14px; }
+.main-service-card h3 { font-size: 29px; line-height: 1.15; }
+.main-service-price { font-size: 13px; }
+.service-more { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); }
+.service-more summary { list-style: none; cursor: pointer; color: var(--primary); font-size: 14px; font-weight: 600; }
+.service-more summary::-webkit-details-marker { display: none; }
+.service-more summary span { float: right; }
+.service-more[open] .main-service-list { margin-top: 16px; }
+.section-title em { font-style: italic; color: var(--primary); }
+.service-feature { position: relative; overflow: hidden; padding: clamp(24px, 4vw, 44px); background: #302443; border-radius: 28px; }
+.service-feature:after { content: '✦'; position: absolute; right: 30px; top: 18px; font-size: 100px; color: #bda3e8; opacity: .22; pointer-events: none; }
+.service-feature .section-title { position: relative; z-index: 1; }
+.service-feature .section-sub { margin-bottom: 24px; }
+.feature-item { border: 0; padding: 16px 20px; background: #ffffff08; border-radius: 14px; }
+.feature-item h3 { font-size: 16px; }
+.feature-item p { font-size: 14px; }
+.estimate-prices { margin: 12px 0 20px; }
+.estimate-prices div { padding: 11px 0; }
+.feature-note { font-size: 13px; max-width: 75ch; }
+.photo-guide { gap: 16px; margin: 24px 0; }
+.photo-guide article { background: #f3f1e8; border: 0; padding: 22px; border-radius: 20px; }
+.photo-guide article:nth-child(2) { background: #eee7f8; }
+.photo-guide article:nth-child(3) { background: #e9eee5; }
+.photo-guide .eyebrow { font-size: 10px; letter-spacing: .07em; }
+.photo-guide .eyebrow:before { display: none; }
+.photo-guide h3 { font-size: 19px; }
+.guide-note { font-size: 13px; margin: 12px 0; }
+.windows-block { padding: 24px 28px; border-radius: 22px; background: #e9eee5; }
+.windows-icon { box-shadow: none; }
+.steps-grid { gap: 24px; }
+.step-num { font-size: 38px; opacity: .65; }
+.cta-band { border-radius: 28px; background: #e9e1f4; color: var(--ink); }
+.cta-band p { color: var(--ink-soft); }
+.cta-band .btn-ghost { color: var(--ink); border-color: #c7bbd6; }
+@media (max-width: 799px) {
+ .hero-layout { grid-template-columns: 1fr; gap: 8px; }
+ .hero { padding-top: 34px; }
+ .hero-inner { max-width: 620px; }
+ .hero h1 { font-size: clamp(38px, 7vw, 52px); }
+ .hero-art { max-width: 430px; width: 100%; margin: 0 auto; }
+ .art-caption { top: 10px; }
+ .art-sticker { right: 4%; bottom: 10px; padding: 12px 16px; }
+ .section { padding: 38px 0; }
+ .section-sub { margin-bottom: 26px; }
+ .service-feature:after { font-size: 70px; right: 10px; }
+ .service-feature .eyebrow { max-width: 24ch; }
+}
+@media (max-width: 399px) {
+ .hero-actions { gap: 10px; }
+ .hero-actions .btn { padding: 13px 16px; font-size: 14px; }
+ .estimate-prices dd { font-size: 14px; }
+}
+
 </style>
 </head>
 <body>
@@ -434,6 +548,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <ul>
         <li><a href="#services">Послуги</a></li>
         <li><a href="#extra">Додаткові</a></li>
+        <li><a href="#upholstery">Хімчистка</a></li>
         <li><a href="#windows">Вікна</a></li>
         <li><a href="#how">Як працюємо</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -441,7 +556,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       </ul>
     </nav>
 
-    <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary btn-small header-cta">Написати в Telegram</a>
+    <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary btn-small header-cta">Написати в Telegram <span aria-hidden="true">↗</span></a>
 
     <button class="burger" id="burgerBtn" aria-label="Відкрити меню" aria-expanded="false">
       <span></span>
@@ -452,11 +567,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <ul>
       <li><a href="#services">Послуги</a></li>
       <li><a href="#extra">Додаткові послуги</a></li>
+      <li><a href="#upholstery">Хімчистка</a></li>
       <li><a href="#windows">Миття вікон</a></li>
       <li><a href="#how">Як ми працюємо</a></li>
       <li><a href="#faq">Часті запитання</a></li>
       <li><a href="#contact">Контакти</a></li>
-      <li class="header-cta"><a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram</a></li>
+      <li class="header-cta"><a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram <span aria-hidden="true">↗</span></a></li>
     </ul>
   </nav>
 </header>
@@ -468,12 +584,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <div class="hero-blob"></div>
   <div class="hero-blob-2"></div>
 
-  <div class="container hero-inner reveal">
-    <p class="eyebrow">Клінінгова компанія</p>
+  <div class="container hero-layout"><div class="hero-inner reveal">
+    <p class="eyebrow">Метелик · клінінг із турботою</p>
     <h1>Чистота, після якої <em>легко дихається</em></h1>
-    <p>Професійне прибирання квартир і будинків у Києві, Київській області та Борисполі. Домовляємось про деталі — і берем рутину на себе.</p>
+    <p>Прибирання та хімчистка у Борисполі й Києві. Ви плануєте день — ми дбаємо про чистоту.</p>
     <div class="hero-actions">
-      <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram</a>
+      <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram <span aria-hidden="true">↗</span></a>
       <a href="tel:+380963037687" class="btn btn-ghost">Зателефонувати</a>
     </div>
     <div class="hero-meta">
@@ -482,6 +598,38 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 12 2a7 7 0 0 1 7 7.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9" r="2.5"/></svg> Бориспіль</span>
     </div>
   </div>
+
+<div class="hero-art" aria-hidden="true">
+ <div class="art-caption"><span>✦</span> Місце для вашого спокою</div>
+ <svg viewBox="0 0 560 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="room" x1="70" y1="0" x2="480" y2="450" gradientUnits="userSpaceOnUse"><stop stop-color="#e8e0ff"/><stop offset="1" stop-color="#f6f1e9"/></linearGradient><linearGradient id="sofa" x1="100" y1="200" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#c8b9ed"/><stop offset="1" stop-color="#a991d2"/></linearGradient></defs>
+  <path d="M40 430V225C40 110 130 28 270 28s250 82 250 197v205H40Z" fill="url(#room)"/>
+  <rect x="315" y="85" width="132" height="175" rx="62" fill="#fffdf7"/>
+  <path d="M381 89v170m-64-84h128" stroke="#e7ddce" stroke-width="5"/>
+  <circle cx="413" cy="135" r="20" fill="#edc888"/>
+  <path d="M40 371h480" stroke="#ddd2e7" stroke-width="2"/>
+  <ellipse cx="283" cy="411" rx="198" ry="35" fill="#dcdcc9"/>
+  <ellipse cx="283" cy="411" rx="168" ry="22" stroke="#f7f5e9" stroke-width="2"/>
+  <path d="M140 362v34m235-34v34" stroke="#63505c" stroke-width="8" stroke-linecap="round"/>
+  <rect x="126" y="240" width="267" height="121" rx="36" fill="url(#sofa)"/>
+  <rect x="105" y="301" width="310" height="78" rx="25" fill="#b09bd3"/>
+  <rect x="136" y="303" width="247" height="44" rx="18" fill="#d4c5ee"/>
+  <path d="M260 245v57m-120 44h240" stroke="#ac95ce" stroke-width="2"/>
+  <rect x="151" y="258" width="64" height="51" rx="13" transform="rotate(-10 151 258)" fill="#fff8e6"/>
+  <rect x="306" y="260" width="56" height="48" rx="13" transform="rotate(9 306 260)" fill="#748d77"/>
+  <path d="M457 358v-91" stroke="#71856a" stroke-width="4"/>
+  <path d="M458 310c-40 0-53-30-46-45 29 1 46 17 46 45Z" fill="#82987a"/>
+  <path d="M459 292c-1-36 15-58 33-60 11 29 1 49-33 60Z" fill="#9aaa86"/>
+  <path d="M459 337c2-31 21-45 42-41-2 27-19 41-42 41Z" fill="#647f65"/>
+  <path d="M433 352h52l-8 47h-36l-8-47Z" fill="#d6b9a1"/>
+  <circle cx="102" cy="137" r="32" fill="#f8f4e9"/>
+  <path d="m102 118 4 14 15 5-15 5-4 15-5-15-14-5 14-5 5-14Z" fill="#8660d3"/>
+  <path d="m475 174 4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z" fill="#8660d3"/>
+  <path d="m82 281 3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8Z" fill="#a690cb"/>
+ </svg>
+ <div class="art-sticker"><span>↗</span> Чисто вдома.<br><em>Легко на душі.</em></div>
+</div>
+</div>
 </section>
 
 <!-- ==========================================================================
@@ -491,7 +639,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <div class="container">
     <p class="eyebrow reveal">Що ми робимо</p>
     <h2 class="section-title reveal">Основні послуги</h2>
-    <p class="section-sub reveal">Ціна вказана «від» за м² — фінальна вартість залежить від стану приміщення та обсягу робіт.</p>
+    <p class="section-sub reveal">Оберіть прибирання під вашу задачу. Остаточну суму погодимо окремо.</p>
 
     <div class="main-services-grid">
 
@@ -500,15 +648,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <h3>Підтримуюче<br>прибирання</h3>
           <span class="main-service-price">від 40 грн/м²</span>
         </div>
-        <ul class="main-service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення пилу</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Пилососіння</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття підлоги</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Базове прибирання кухні</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Прибирання санвузла</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття дзеркал</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Винесення сміття</li>
-        </ul>
+        <ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення пилу</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Пилососіння</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття підлоги</li></ul><details class="service-more"><summary>Повний перелік <span aria-hidden="true">＋</span></summary><ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Базове прибирання кухні</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Прибирання санвузла</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття дзеркал</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Винесення сміття</li></ul></details>
       </div>
 
       <div class="main-service-card is-accent reveal">
@@ -516,17 +656,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <h3>Генеральне<br>прибирання</h3>
           <span class="main-service-price">від 100 грн/м²</span>
         </div>
-        <ul class="main-service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення пилу та павутиння</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення відкритих поверхонь</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття підлоги та плінтусів</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення дверей, ручок, вимикачів</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Прибирання кухні</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Робочі поверхні та фасади</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення сантехніки</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття дзеркал</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Винесення сміття</li>
-        </ul>
+        <ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення пилу та павутиння</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення відкритих поверхонь</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття підлоги та плінтусів</li></ul><details class="service-more"><summary>Повний перелік <span aria-hidden="true">＋</span></summary><ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення дверей, ручок, вимикачів</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Прибирання кухні</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Робочі поверхні та фасади</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення сантехніки</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Миття дзеркал</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Винесення сміття</li></ul></details>
       </div>
 
       <div class="main-service-card reveal">
@@ -534,16 +664,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
           <h3>Прибирання<br>після ремонту</h3>
           <span class="main-service-price">від 120 грн/м²</span>
         </div>
-        <ul class="main-service-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення будівельного пилу</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення поверхонь</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Двері та підвіконня</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Плінтуси</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Підлога</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Кухня</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Санвузол</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Фінальне приведення до чистого стану</li>
-        </ul>
+        <ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Видалення будівельного пилу</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Очищення поверхонь</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Двері та підвіконня</li></ul><details class="service-more"><summary>Повний перелік <span aria-hidden="true">＋</span></summary><ul class="main-service-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Плінтуси</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Підлога</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Кухня</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Санвузол</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Фінальне приведення до чистого стану</li></ul></details>
       </div>
 
     </div>
@@ -557,7 +678,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <div class="container">
     <p class="eyebrow reveal">Прайс</p>
     <h2 class="section-title reveal">Додаткові послуги</h2>
-    <p class="section-sub reveal">Ціни вказані «від» — фінальна вартість залежить від обсягу робіт. Натисніть на категорію, щоб розгорнути список.</p>
+    <p class="section-sub reveal">Те, що можна додати до прибирання.</p>
 
     <div class="accordion">
 
@@ -591,11 +712,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
             <div class="price-row"><span class="price-name">Миття складних люстр</span><span class="price-dots"></span><span class="price-value">від 500 грн</span></div>
             <div class="price-row"><span class="price-name">Зняти / випрати / повісити штори</span><span class="price-dots"></span><span class="price-value">від 300 грн</span></div>
             <div class="price-row"><span class="price-name">Жалюзі</span><span class="price-dots"></span><span class="price-value">від 100 грн/шт</span></div>
-            <div class="price-row">
-              <span class="price-name">Хімчистка м'яких меблів<span class="badge">−20% при генеральному прибиранні</span></span>
-              <span class="price-dots"></span><span class="price-value">від 1000 грн</span>
-            </div>
-            <div class="price-row"><span class="price-name">Хімчистка ковроліну</span><span class="price-dots"></span><span class="price-value">від 160 грн/м²</span></div>
           </div>
         </div>
       </details>
@@ -626,6 +742,37 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <!-- ==========================================================================
      МИТТЯ ВІКОН — окремий блок (не належить до трьох основних послуг)
      ========================================================================== -->
+
+<section class="section" id="upholstery" aria-labelledby="upholstery-title">
+  <div class="container">
+    <div class="service-feature">
+      <p class="eyebrow">Свіжість у кожній деталі</p>
+      <h2 class="section-title" id="upholstery-title">Хімчистка меблів,<br>матраців і килимів</h2>
+      <p class="section-sub">Улюбленим речам — свіжий вигляд. Вартість уточнимо за фото.</p>
+      <div class="feature-grid">
+        <article class="feature-item"><h3>Дивани, крісла та стільці</h3><p>Фото цілком + плями зблизька. Додайте приблизні розміри.</p></article>
+        <article class="feature-item"><h3>Матраци, килими та ковролін</h3><p>Розміри, фото та кількість сторін матраца для очищення.</p></article>
+      </div>
+      <h3>Орієнтовна вартість</h3>
+      <dl class="estimate-prices">
+        <div><dt>Диван на 2 місця</dt><dd>1 200–1 700 грн</dd></div>
+        <div><dt>Диван на 3 місця</dt><dd>1 600–2 000 грн</dd></div>
+        <div><dt>Кутовий диван</dt><dd>1 800–2 500 грн</dd></div>
+        <div><dt>Крісло</dt><dd>500–800 грн</dd></div>
+        <div><dt>М’який стілець</dt><dd>150–350 грн</dd></div>
+        <div><dt>Односпальний матрац · 1 сторона</dt><dd>800–1 300 грн</dd></div>
+        <div><dt>Двоспальний матрац · 1 сторона</dt><dd>1 200–1 800 грн</dd></div>
+        <div><dt>Килим</dt><dd>120–180 грн/м²</dd></div>
+        <div><dt>Ковролін</dt><dd>100–180 грн/м²</dd></div>
+      </dl>
+      <p class="feature-note">Ціни орієнтовні. Розмір, матеріал і стан впливають на суму — погодимо її до початку робіт.</p>
+      <br>
+      <a class="btn btn-primary" href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener">Написати в Telegram <span aria-hidden="true">↗</span></a>
+      
+    </div>
+  </div>
+</section>
+
 <section class="section" id="windows">
   <div class="container">
     <div class="windows-block reveal">
@@ -644,6 +791,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <!-- ==========================================================================
      ЯК МИ ПРАЦЮЄМО
      ========================================================================== -->
+
+<section class="section" id="estimate" aria-labelledby="estimate-title">
+  <div class="container">
+    <p class="eyebrow">Почнемо з кількох фото</p>
+    <h2 class="section-title" id="estimate-title">Покажіть, що потрібно<br><em>привести до ладу</em></h2>
+    <p class="section-sub">Фото або коротке відео допоможуть нам спланувати роботу.</p>
+    <div class="photo-guide">
+      <article><span class="eyebrow">01 / Загальний вигляд</span><h3>Кімнати або меблі</h3><p>По фото кожної кімнати або предмета цілком — у Telegram.</p></article>
+      <article><span class="eyebrow">02 / Деталі</span><h3>Складні ділянки</h3><p>Плями, наліт і сліди ремонту — ближче.</p></article>
+      <article><span class="eyebrow">03 / Побажання</span><h3>Місце та зручні дні</h3><p>Місто, площа, поверх / ліфт і 2–3 бажані дати.</p></article>
+    </div>
+    <p class="guide-note">Надішліть фото або коротке відео разом із побажаннями в Telegram.</p>
+    <div class="guide-actions"><a class="btn btn-primary" href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener">Написати в Telegram <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="tel:+380963037687">Зателефонувати</a></div>
+    <p class="guide-note">Дату й час підтвердимо після перевірки команди та транспорту.</p>
+  </div>
+</section>
+
 <section class="section" id="how" style="background:var(--bg-alt)">
   <div class="container">
     <p class="eyebrow reveal">Процес</p>
@@ -652,15 +816,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <div class="steps-grid">
       <div class="step-item reveal">
         <span class="step-num">01</span>
-        <div><h3>Зв’язуєтесь із нами</h3><p>Пишете в Telegram або телефонуєте.</p></div>
+        <div><h3>Зв’язуєтесь із нами</h3><p>Повідомлення в Telegram з деталями та фото.</p></div>
       </div>
       <div class="step-item reveal">
         <span class="step-num">02</span>
-        <div><h3>Уточнюємо деталі</h3><p>Обговорюємо площу, тип прибирання та побажання.</p></div>
+        <div><h3>Уточнюємо деталі</h3><p>Визначаємо обсяг і склад команди.</p></div>
       </div>
       <div class="step-item reveal">
         <span class="step-num">03</span>
-        <div><h3>Погоджуємо вартість і час</h3><p>Фіксуємо орієнтовну ціну та зручну дату.</p></div>
+        <div><h3>Погоджуємо вартість і час</h3><p>Підтверджуємо суму та можливий час.</p></div>
       </div>
       <div class="step-item reveal">
         <span class="step-num">04</span>
@@ -696,7 +860,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       </details>
       <details class="faq-item reveal">
         <summary>Як замовити прибирання?</summary>
-        <p>Напишіть нам у Telegram або зателефонуйте. Ми уточнимо деталі, вартість і зручний час.</p>
+        <p>Надішліть у Telegram населений пункт, потрібну послугу, площу або розміри меблів, бажані дати та фото чи коротке відео. Після оцінки погодимо з вами вартість і час. Якщо фото немає — напишіть нам, допоможемо уточнити деталі.</p>
       </details>
     </div>
   </div>
@@ -709,12 +873,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   <div class="container">
     <div class="cta-band reveal">
       <h2>Потрібне прибирання?</h2>
-      <p>Напишіть нам у Telegram або зателефонуйте — уточнимо деталі та підберемо зручний час.</p>
+      <p>Напишіть, що потрібно прибрати, та додайте фото — погодимо деталі в Telegram.</p>
       <div class="cta-actions">
-        <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-          Написати в Telegram
-        </a>
+        <a href="https://t.me/cleaning_butterfly" target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram <span aria-hidden="true">↗</span></a>
         <a href="tel:+380963037687" class="btn btn-ghost">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
           Зателефонувати
@@ -739,7 +900,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Контакти</h4>
-        <a href="tel:+380963037687">+096 303 76 87</a>
+        <a href="tel:+380963037687">+380 96 303 76 87</a>
         <a href="mailto:butterfly.cleaning8@gmail.com">butterfly.cleaning8@gmail.com</a>
       </div>
       <div class="footer-col">
@@ -770,6 +931,7 @@ burgerBtn.addEventListener('click', () => {
   const isOpen = navMobile.classList.toggle('is-open');
   burgerBtn.classList.toggle('is-open', isOpen);
   burgerBtn.setAttribute('aria-expanded', isOpen);
+  burgerBtn.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
 });
 
 // закриваємо меню після кліку на посилання (зручно на мобільному)
@@ -778,21 +940,9 @@ navMobile.querySelectorAll('a').forEach(link => {
     navMobile.classList.remove('is-open');
     burgerBtn.classList.remove('is-open');
     burgerBtn.setAttribute('aria-expanded', false);
+    burgerBtn.setAttribute('aria-label', 'Відкрити меню');
   });
 });
-
-// --- Плавна поява елементів при скролі ---
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-revealEls.forEach(el => observer.observe(el));
 
 </script>
 
