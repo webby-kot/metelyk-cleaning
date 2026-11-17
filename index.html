@@ -535,6 +535,7 @@ html { scroll-padding-top: 84px; }
 .message-kit button { cursor: pointer; font: inherit; }
 .message-kit textarea:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 @media(max-width:560px) { .message-kit .guide-actions>* { width:100%; justify-content:center; } }
+.service-page-links { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:28px 0 0; }.service-page-links a { padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none; }.service-page-links a:hover { border-color:var(--primary);color:var(--primary); }.service-page-links span { color:var(--primary); }@media(max-width:800px){.service-page-links{grid-template-columns:1fr 1fr}}@media(max-width:480px){.service-page-links{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -676,6 +677,7 @@ html { scroll-padding-top: 84px; }
       </div>
 
     </div>
+    <nav class="service-page-links" aria-label="Докладніше про послуги"><a href="/general-cleaning.html">Генеральне прибирання <span aria-hidden="true">↗</span></a><a href="/after-renovation-cleaning.html">Прибирання після ремонту <span aria-hidden="true">↗</span></a><a href="/upholstery-cleaning.html">Хімчистка меблів і килимів <span aria-hidden="true">↗</span></a><a href="/window-cleaning.html">Миття вікон <span aria-hidden="true">↗</span></a></nav>
   </div>
 </section>
 
