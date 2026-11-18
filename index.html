@@ -536,6 +536,22 @@ html { scroll-padding-top: 84px; }
 .message-kit textarea:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 @media(max-width:560px) { .message-kit .guide-actions>* { width:100%; justify-content:center; } }
 .service-page-links { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:28px 0 0; }.service-page-links a { padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--card);font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none; }.service-page-links a:hover { border-color:var(--primary);color:var(--primary); }.service-page-links span { color:var(--primary); }@media(max-width:800px){.service-page-links{grid-template-columns:1fr 1fr}}@media(max-width:480px){.service-page-links{grid-template-columns:1fr}}
+.reviews-layout { display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:28px; }
+.review-form,.review-card { padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--card); }
+.review-form h3 { font-size:23px;margin-bottom:10px; }.review-form fieldset { border:0;padding:0;margin:0;min-width:0; }
+.review-form label,.review-rating legend { display:block;font-size:14px;font-weight:600;margin:18px 0 8px; }
+.review-form input:not([type=radio]):not([type=checkbox]),.review-form select,.review-form textarea { width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--line);border-radius:12px;color:var(--ink);background:var(--bg);font:inherit;font-size:16px; }
+.review-form textarea { resize:vertical;line-height:1.6; }.review-form button { cursor:pointer;font:inherit; }.review-form input:focus-visible,.review-form select:focus-visible,.review-form textarea:focus-visible { outline:2px solid var(--primary);outline-offset:3px; }
+.review-help,.review-notice { font-size:13px;color:var(--ink-soft);line-height:1.65; }.review-help { margin:10px 0;overflow-wrap:anywhere; }
+.review-notice { padding:24px;border-radius:20px;background:#eee7f8;margin:0 0 16px; }.reviews-list { display:grid;gap:16px;margin-bottom:18px; }
+.review-card h3 { font-size:17px; }.review-card blockquote { margin:14px 0;white-space:pre-wrap;overflow-wrap:anywhere; }.review-card .review-stars { color:var(--primary);letter-spacing:3px;font-size:21px; }.review-card footer { font-size:12px;color:var(--ink-soft); }
+.review-rating>div { display:flex;gap:7px;flex-wrap:wrap; }.review-form .review-rating label { margin:0;position:relative;cursor:pointer; }.review-rating input { position:absolute;opacity:0; }.review-rating span { display:block;padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:var(--bg); }.review-rating input:checked+span { background:var(--primary);color:white;border-color:var(--primary); }.review-rating input:focus-visible+span { outline:2px solid var(--primary);outline-offset:3px; }
+.review-form .review-consent { display:flex;align-items:flex-start;gap:10px;font-size:12px;font-weight:400;line-height:1.6;margin:18px 0; }.review-consent input { width:18px;height:18px;flex-shrink:0;margin:2px 0;accent-color:var(--primary); }
+.review-trap { position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden; }.review-form [disabled] { opacity:.6; }.review-form #reviewSubmit { width:100%;justify-content:center; }
+@media(max-width:800px) { .reviews-layout { grid-template-columns:1fr;gap:24px; }.review-form,.review-card { padding:22px; } }
+
+#reviewsMore[hidden],#reviewsNotice[hidden]{display:none}
+
 </style>
 </head>
 <body>
@@ -561,6 +577,7 @@ html { scroll-padding-top: 84px; }
         <li><a href="#windows">Вікна</a></li>
         <li><a href="#how">Як працюємо</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Відгуки</a></li>
         <li><a href="#contact">Контакти</a></li>
       </ul>
     </nav>
@@ -580,7 +597,8 @@ html { scroll-padding-top: 84px; }
       <li><a href="#windows">Миття вікон</a></li>
       <li><a href="#how">Як ми працюємо</a></li>
       <li><a href="#faq">Часті запитання</a></li>
-      <li><a href="#contact">Контакти</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
+        <li><a href="#contact">Контакти</a></li>
       <li class="header-cta"><a href="https://t.me/cleaning_butterfly?text=%D0%94%D0%BE%D0%B1%D1%80%D0%B8%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BC%D0%BE%D0%B2%D0%B8%D1%82%D0%B8%20%D0%BF%D0%BE%D1%81%D0%BB%D1%83%D0%B3%D1%83.%0A%D0%9F%D0%BE%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%0A%D0%9D%D0%B0%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%83%D0%BD%D0%BA%D1%82%20%2F%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%3A%20%0A%D0%9F%D0%BB%D0%BE%D1%89%D0%B0%20%D0%B0%D0%B1%D0%BE%20%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%80%D0%B8%20%D0%BC%D0%B5%D0%B1%D0%BB%D1%96%D0%B2%3A%20%0A%D0%9F%D0%BE%D0%B2%D0%B5%D1%80%D1%85%20%2F%20%D0%BB%D1%96%D1%84%D1%82%3A%20%0A%D0%91%D0%B0%D0%B6%D0%B0%D0%BD%D1%96%20%D0%B4%D0%B0%D1%82%D0%B8%20%D0%B9%20%D1%87%D0%B0%D1%81%3A%20%0A%D0%A9%D0%BE%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D1%83%D1%94%20%D0%BE%D1%81%D0%BE%D0%B1%D0%BB%D0%B8%D0%B2%D0%BE%D1%97%20%D1%83%D0%B2%D0%B0%D0%B3%D0%B8%3A%20%0A%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B0%D0%B1%D0%BE%20%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%20%D0%B4%D0%BE%D0%B4%D0%B0%D0%BC%20%D1%83%20%D1%86%D1%8C%D0%BE%D0%BC%D1%83%20%D1%87%D0%B0%D1%82%D1%96." target="_blank" rel="noopener" class="btn btn-primary">Написати в Telegram <span aria-hidden="true">↗</span></a></li>
     </ul>
   </nav>
@@ -866,6 +884,50 @@ html { scroll-padding-top: 84px; }
 <!-- ==========================================================================
      ЧАСТІ ЗАПИТАННЯ
      ========================================================================== -->
+<section class="section" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <p class="eyebrow">Ваш досвід важливий</p>
+    <h2 class="section-title" id="reviews-title">Відгуки <em>клієнтів</em></h2>
+    <p class="section-sub">Уже користувалися нашими послугами? Розкажіть, як усе пройшло.</p>
+    <div class="reviews-layout">
+      <div>
+        <p id="reviewsNotice" class="review-notice" role="status">Завантажуємо відгуки…</p>
+        <div id="reviewsList" class="reviews-list" aria-live="polite"></div>
+        <button class="btn btn-ghost" type="button" id="reviewsMore" hidden>Показати ще</button>
+      </div>
+      <form id="reviewForm" class="review-form">
+        <h3>Залишити відгук</h3>
+        <p class="review-help">Без реєстрації. Відгук з’явиться після перевірки на спам та особисті дані.</p>
+        <fieldset id="reviewFields" disabled>
+          <label for="reviewName">Ваше ім’я</label>
+          <input id="reviewName" name="author_name" autocomplete="given-name" required minlength="2" maxlength="60" placeholder="Наприклад, Олена">
+          <label for="reviewService">Якою послугою користувалися?</label>
+          <select id="reviewService" name="service" required>
+            <option value="">Оберіть послугу</option>
+            <option>Підтримуюче прибирання</option><option>Генеральне прибирання</option>
+            <option>Прибирання після ремонту</option><option>Хімчистка</option><option>Миття вікон</option><option>Інша послуга</option>
+          </select>
+          <fieldset class="review-rating"><legend>Ваша оцінка</legend><div>
+            <label><input type="radio" name="rating" value="1" required><span>1 ★</span></label>
+            <label><input type="radio" name="rating" value="2"><span>2 ★</span></label>
+            <label><input type="radio" name="rating" value="3"><span>3 ★</span></label>
+            <label><input type="radio" name="rating" value="4"><span>4 ★</span></label>
+            <label><input type="radio" name="rating" value="5"><span>5 ★</span></label>
+          </div></fieldset>
+          <label for="reviewBody">Ваші враження</label>
+          <textarea id="reviewBody" name="body" rows="5" required minlength="20" maxlength="1500" placeholder="Що сподобалося? Що можемо покращити?"></textarea>
+          <p class="review-help">Від 20 до 1500 символів. Не вказуйте телефон, точну адресу чи інші приватні дані.</p>
+          <div class="review-trap" aria-hidden="true"><label>Ваш сайт<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="review-consent"><input type="checkbox" name="consent" required><span>Погоджуюся на збереження та публікацію мого імені, оцінки й тексту відгуку на цьому сайті.</span></label>
+          <button class="btn btn-primary" id="reviewSubmit" type="submit">Надіслати відгук</button>
+        </fieldset>
+        <p id="reviewStatus" class="review-help" role="status" aria-live="polite"></p>
+        <p class="review-help">Щоб виправити або прибрати свій відгук, напишіть на <a href="mailto:butterfly.cleaning8@gmail.com">butterfly.cleaning8@gmail.com</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="faq">
   <div class="container">
     <p class="eyebrow reveal">Корисно знати</p>
@@ -991,5 +1053,56 @@ navMobile.querySelectorAll('a').forEach(link => {
 
 </script>
 
+<script>
+(() => {
+  // Only the project URL and public publishable key belong here. Never add a service-role key.
+  const config={"url": "https://latluoimjexopdkddbnf.supabase.co", "key": "sb_publishable_9p4nXky0ZGr_R9cQqf_Kow_n0XiKls8"};
+  const form=document.getElementById('reviewForm'),fields=document.getElementById('reviewFields');
+  const list=document.getElementById('reviewsList'),notice=document.getElementById('reviewsNotice');
+  const status=document.getElementById('reviewStatus'),more=document.getElementById('reviewsMore');
+  const submit=document.getElementById('reviewSubmit');
+  let offset=0,loading=false;
+  const request=async(url,options={})=>{
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
+    try{return await fetch(url,{...options,signal:controller.signal});}finally{clearTimeout(timer);}
+  };
+  const el=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
+  async function loadReviews(){
+    if(loading)return;loading=true;more.disabled=true;
+    try {
+      const params=new URLSearchParams({select:'id,author_name,service,rating,body,created_at',order:'created_at.desc,id.desc',limit:'6',offset:String(offset)});
+      const r=await request(config.url+'/rest/v1/reviews?'+params,{headers:{apikey:config.key}});
+      if(!r.ok)throw new Error('load');const reviews=await r.json();if(!Array.isArray(reviews))throw new Error('load');
+      for(const review of reviews){
+        if(!Number.isInteger(review.rating)||review.rating<1||review.rating>5)continue;
+        const card=el('article',undefined,'review-card'),stars=el('div','★'.repeat(review.rating)+'☆'.repeat(5-review.rating),'review-stars');
+        stars.setAttribute('aria-label',review.rating+' з 5');card.append(stars,el('h3',review.author_name),el('p',review.service,'review-help'),el('blockquote',review.body));
+        const date=new Date(review.created_at);if(!isNaN(date.getTime()))card.append(el('footer',date.toLocaleDateString('uk-UA',{year:'numeric',month:'long',day:'numeric'})));
+        list.append(card);
+      }
+      offset+=reviews.length;more.hidden=reviews.length<6;
+      notice.hidden=offset>0;notice.textContent='Опублікованих відгуків поки немає. Ваш може стати першим.';
+    } catch {notice.hidden=false;notice.textContent='Не вдалося завантажити відгуки. Спробуйте оновити сторінку пізніше.';}
+    finally{loading=false;more.disabled=false;}
+  }
+  if(!config.url||!config.key){notice.textContent='Підключаємо відгуки. Форма стане доступною після перевірки збереження.';status.textContent='Форма ще не приймає відповіді.';return;}
+  fields.disabled=false;loadReviews();more.addEventListener('click',loadReviews);
+  form.addEventListener('submit',async(event)=>{
+    event.preventDefault();if(!form.reportValidity()||submit.disabled)return;
+    const data=new FormData(form);const payload={author_name:String(data.get('author_name')||'').trim(),service:data.get('service'),rating:Number(data.get('rating')),body:String(data.get('body')||'').trim(),website:data.get('website'),consent:data.get('consent')==='on'};
+    if(payload.author_name.length<2||payload.body.length<20){status.textContent='Укажіть ім’я від 2 символів і текст відгуку від 20 символів.';return;}
+    submit.disabled=true;status.textContent='Зберігаємо відгук…';
+    try {
+      const response=await request(config.url+'/functions/v1/submit-review',{method:'POST',headers:{'Content-Type':'application/json',apikey:config.key,Authorization:'Bearer '+config.key},body:JSON.stringify(payload)});
+      if(response.status===429){status.textContent='Забагато спроб надсилання. Спробуйте пізніше.';return;}
+      if(!response.ok)throw new Error('save');const saved=await response.json();
+      if(saved.saved!==true||!saved.id||saved.status!=='pending')throw new Error('save');
+      form.reset();status.textContent='Дякуємо! Відгук збережено й передано на перевірку. Після схвалення він з’явиться тут.';
+    } catch {status.textContent='Не вдалося підтвердити збереження. Ваш текст залишився у формі. Спробуйте пізніше або напишіть нам у Telegram.';}
+    finally{submit.disabled=false;}
+  });
+})();
+
+</script>
 </body>
 </html>
